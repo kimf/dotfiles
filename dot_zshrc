@@ -51,11 +51,12 @@ if [ -d "/opt/homebrew/opt/openjdk" ]; then
 fi
 
 fpath+=~/.zfunc
-
 # ensure the completions get loaded
 fpath=(~/.zsh $fpath)
-autoload -Uz compinit
-compinit -u
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+autoload -Uz compinit && compinit -u
+
+
 
 # Fix NSCFConstantString initialize error
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
