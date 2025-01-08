@@ -136,15 +136,16 @@ asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git
 asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
 asdf plugin-add python
 
-# Start Services
-echo "Starting Services (grant permissions)..."
-brew services start sketchybar
-brew services start borders
-
+(git clone https://github.com/FelixKratz/SbarLua.git /tmp/SbarLua && cd /tmp/SbarLua/ && make install && rm -rf /tmp/SbarLua/)
 ## copying things to where it should be
 echo "init chezmoi"
 chezmoi init git@github.com:kimf/dotfiles.git
 chezmoi apply
+
+# Start Services
+echo "Starting Services (grant permissions)..."
+brew services start sketchybar
+brew services start borders
 
 csrutil status
 
