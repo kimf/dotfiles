@@ -1,0 +1,66 @@
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# Source zsh plugins
+source $(brew --prefix)/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+eval "$(starship init zsh)"
+
+
+export EDITOR="code --wait"
+export VISUAL="code --wait"
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+
+#alias e='zed'                               # Edit folder in Zed
+alias e='code'                               # Edit folder in VS Code
+alias x='gitx -c'                           # Open Git diff
+alias c='clear'                             # c:            Clear terminal display
+
+alias  cat='bat'
+alias ssh="TERM=xterm-256color ssh"
+
+# RAILS
+alias be="bundle exec"
+
+# GIT
+alias gb='git branch'
+alias gba="git branch -a"
+alias gbs="git-branch-status"
+alias gco='git checkout'
+alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
+alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
+alias gs="git status -sb --ignore-submodules=dirty"
+alias g="lazygit"
+
+# COMMON DIRS
+alias work='cd ~/work && c'
+alias projects='cd ~/projects && c'
+
+# TOOLS
+
+
+# Add asdf
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+if [ -d "/opt/homebrew/opt/openjdk" ]; then
+  export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+fi
+
+fpath+=~/.zfunc
+
+# ensure the completions get loaded
+fpath=(~/.zsh $fpath)
+autoload -Uz compinit
+compinit -u
+
+# Fix NSCFConstantString initialize error
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+
+# Azure DevOps Access Token (needed for metso dotnet to install private stuff)
+export AZDO_PERSONAL_ACCESS_TOKEN=96EMtzMXMMnSNeNmvxAqkzq2JTSqFKnTu4nFyUrnVRbWhFcFlHZ4JQQJ99AKACAAAAAHeuZCAAASAZDOGCFR
+
+export XDG_CONFIG_HOME="$HOME/.config"

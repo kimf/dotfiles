@@ -1,0 +1,30 @@
+[user]
+	name = Kim Fransman
+	email = kim.fransman@daresay.co
+[core]
+	editor = code --wait
+	pager = delta
+[alias]
+	co = checkout
+[rerere]
+	enabled = true
+[init]
+	defaultBranch = main
+[pull]
+	ff = only
+	rebase = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[color]
+	ui = true
+[interactice]
+    diffFilter = delta --color-only
+[delta]
+    navigate = true
+[merge]
+    conflictstyle = zdiff3
+[diff]
+    colorMoved = default

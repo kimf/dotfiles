@@ -1,0 +1,11 @@
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
+
+# Added by OrbStack: command-line tools and integration
+# This won't be added again if you remove it.
+source ~/.orbstack/shell/init.zsh 2>/dev/null || :

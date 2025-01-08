@@ -1,0 +1,5 @@
+github.com:
+    user: kimf
+    git_protocol: ssh
+    users:
+        kimf: {}
