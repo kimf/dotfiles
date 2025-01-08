@@ -115,11 +115,6 @@ echo "Installing Mac App Store Apps..."
 mas install 517914548 #dashlane
 mas install 1091189122 #bear markdown notes
 
-# Copying and checking out configuration files
-echo "Planting Configuration Files..."
-[ ! -d "$HOME/dotfiles" ] && git clone --bare git@github.com:kimf/dotfiles.git $HOME/dotfiles
-git --git-dir=$HOME/dotfiles/ --work-tree=$HOME checkout master
-
 mkdir ~/work
 mkdir ~/projects
 
@@ -145,6 +140,11 @@ asdf plugin-add python
 echo "Starting Services (grant permissions)..."
 brew services start sketchybar
 brew services start borders
+
+## copying things to where it should be
+echo "init chezmoi"
+chezmoi init git@github.com:kimf/dotfiles.git
+chezmoi apply
 
 csrutil status
 
