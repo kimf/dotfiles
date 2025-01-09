@@ -1,26 +1,21 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Source zsh plugins
 source $(brew --prefix)/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+# Starship prompt
 eval "$(starship init zsh)"
 
-
+# editor
 export EDITOR="code --wait"
 export VISUAL="code --wait"
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-
-#alias e='zed'                               # Edit folder in Zed
+# ALIASES
 alias e='code'                               # Edit folder in VS Code
 alias x='gitx -c'                           # Open Git diff
 alias c='clear'                             # c:            Clear terminal display
 
-alias  cat='bat'
+alias cat='bat'
 alias ssh="TERM=xterm-256color ssh"
 
 # RAILS
@@ -50,13 +45,12 @@ if [ -d "/opt/homebrew/opt/openjdk" ]; then
   export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 fi
 
-fpath+=~/.zfunc
-# ensure the completions get loaded
-fpath=(~/.zsh $fpath)
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# completions
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 autoload -Uz compinit && compinit -u
-
-
 
 # Fix NSCFConstantString initialize error
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
