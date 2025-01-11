@@ -21,6 +21,8 @@ alias ssh="TERM=xterm-256color ssh"
 # RAILS
 alias be="bundle exec"
 
+alias py="python"
+
 # GIT
 alias gb='git branch'
 alias gba="git branch -a"
