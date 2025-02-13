@@ -99,7 +99,7 @@ alt-shift-l = 'move right'
 
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#resize
-alt-shift-l = 'resize smart -100'
+alt-shift-i = 'resize smart -100'
 alt-shift-u = 'resize smart +100'
 
 alt-shift-q = 'move-node-to-workspace 1.Main'
